@@ -10,7 +10,7 @@ Prompt,
 useHistory} from "react-router-dom";
 import loggedIn from "./loggedin";
 
-function User({facade}) {
+function Owner({facade}){
 
     const[userInput, setUserInput] = useState({})
 
@@ -18,18 +18,24 @@ function User({facade}) {
         setUserInput({ ...userInput, [evt.target.id]: evt.target.value })
     }
 
+
     return (
         <div>
-            <ul className="user">
-                <h1>User Component</h1>
+            <ul className="owner">
+                <h1>Owner Component</h1>
             </ul>
+
             <br></br>
 
-
-
+            
+                      
 
         </div>
-    );
+    )
+
+
+
+
 }
 
-export default User;
+export default Owner;

@@ -1,4 +1,6 @@
-const URL = "http://localhost:8080/Currency/";
+
+
+const URL = "http://localhost:8080/Eksamen_Backend_war_exploded/";
 
 function handleHttpErrors(res){
     if(!res.ok){
@@ -20,7 +22,7 @@ function apiFacade(){
             setLoggedIn(true);
         setErrorMessage(" logged in ");
     })
-    .catch((err)=>{
+    .catch((err)=>{ 
         if(err.status){
             err.fullError.then((e)=>setErrorMessage(e.code+": "+e.message));
         } else{
@@ -38,6 +40,14 @@ const getUserRoles = () => {
         const roles = decodedClaims.roles;
         return roles;
     }else return "";
+}
+
+
+
+const getAuctions = (setAuctions) =>{
+    const options = makeOptions("GET", true);
+    return fetch(URL+"api/auction/all",options).then(handleHttpErrors).then((res)=>{setAuctions(res.auction)});
+    
 }
 
 const hasUserAccess = (neededRole) => {
@@ -99,6 +109,7 @@ return {
     getUserRoles,
     hasUserAccess,
     postData,
+    getAuctions,
 };
 
 

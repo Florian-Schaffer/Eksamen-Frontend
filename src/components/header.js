@@ -26,12 +26,12 @@ import loggedIn from "./loggedin";
         <div>
             <ul className="header">
 
-                {facade.hasUserAccess('user') && <li><NavLink activeClassName='active' to='/user'>User</NavLink></li>}
                 <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-                <li><NavLink activeClassName="active" to="/user">User</NavLink></li>
-                <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>
-                <li><NavLink activeClassName="active" to="/currency">Currency Converter</NavLink></li>
-
+                <li><NavLink activeClassName="active" to="/auction">Boat Auctions</NavLink></li>
+                {facade.hasUserAccess('user') && <li><NavLink activeClassName='active' to='/user'>User</NavLink></li>}
+                {facade.hasUserAccess('admin') && <li><NavLink activeClassName="active" to="/admin">Admin</NavLink></li>} 
+                {facade.hasUserAccess('owner') && <li><NavLink activeClassName="active" to="/owner">Owner</NavLink></li>}
+           
             </ul>
         </div>
     )
